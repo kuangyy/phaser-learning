@@ -14,7 +14,7 @@ var phoenix = null;
 function create() {
 
     game.add.image(0, 0, 'sky');
-
+    // The image used as a texture by this creature object during rendering. If a string Phaser will get for an entry in the Image Cache. Or it can be an instance of a PIXI.Texture.
     phoenix = game.add.creature(450, 350, 'phoenixTexture', 'phoenixMesh');
 
     phoenix.setAnimation('flight');

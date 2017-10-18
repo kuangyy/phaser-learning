@@ -3,6 +3,7 @@ var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: p
 
 function preload() {
 
+    // load
     game.load.image('lazur', 'assets/pics/thorn_lazur.png');
     game.load.spritesheet('mummy', 'assets/sprites/metalslug_mummy37x45.png', 37, 45, 18);
 
@@ -15,13 +16,17 @@ var loopText;
 
 function create() {
 
+    // add to scene
     back = game.add.image(0, -400, 'lazur');
+    // x2
     back.scale.set(2);
     back.smoothed = false;
 
     mummy = game.add.sprite(200, 360, 'mummy', 5);
     mummy.scale.set(4);
+    // 抗锯齿
     mummy.smoothed = false;
+    // the 'walk'
     anim = mummy.animations.add('walk');
 
     anim.onStart.add(animationStarted, this);
@@ -34,6 +39,7 @@ function create() {
 
 function animationStarted(sprite, animation) {
 
+    //  text(x, y, text, style, group) → {Phaser.Text}
     game.add.text(32, 32, 'Animation started', { fill: 'white' });
 
 }
@@ -47,6 +53,7 @@ function animationLooped(sprite, animation) {
     else
     {
         loopText.text = 'Animation looped x2';
+        // loop
         animation.loop = false;
     }
 

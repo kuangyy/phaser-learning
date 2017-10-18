@@ -12,16 +12,17 @@ var rip = 0;
 
 function create() {
 
+    // add a group
     sprites = game.add.group();
-
+    // timer 50ms/
     game.time.events.loop(50, createSprite, this);
 
 }
 
 function createSprite() {
-
+    // radom Y mummy
     var mummy = sprites.create(0, game.world.randomY, 'mummy');
-
+    // animate
     mummy.animations.add('walk');
 
     mummy.play('walk', 10, true);
@@ -31,7 +32,7 @@ function createSprite() {
 function update() {
 
     sprites.setAll('x', 10, true, true, 1);
-
+    // forEach(callback, callbackContext, checkExists, args)
     sprites.forEach(checkSprite, this, true);
 
 }

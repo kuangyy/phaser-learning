@@ -14,8 +14,9 @@ function create() {
 
     bot = game.add.sprite(200, 200, 'bot');
 
+    // create a animate
     bot.animations.add('run');
-
+    // start play(name, frameRate(frame per second), loop (true/false), killOnComplete(If set to true when the animation completes (only happens if loop=false) the parent Sprite will be killed.))
     bot.animations.play('run', 15, true);
 
     game.input.onDown.addOnce(changeMummy, this);
@@ -24,6 +25,7 @@ function create() {
 
 function changeMummy() {
 
+	// 改变游戏对象的基础结构。旧的纹理被删除，新的一个被引用或从缓存中获取。 from witch frame
     bot.loadTexture('mummy', 0);
 
     bot.animations.add('walk');
